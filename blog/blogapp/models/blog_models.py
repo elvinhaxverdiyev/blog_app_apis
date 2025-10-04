@@ -11,7 +11,7 @@ class Blog(models.Model):
     class Meta:
         verbose_name = "Blog yazisi"
         verbose_name_plural = "Blog Yazilari"
-        oredring = ["-created_at"]
+        ordering = ["-id"] 
         
     def __str__(self):
         return self.title

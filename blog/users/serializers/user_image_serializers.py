@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from blogapp.models.user_image_models import UsersImageModel
+from users.models.user_image_model import UsersImageModel
 
 
 class UserImageSerializer(serializers.ModelSerializer):
