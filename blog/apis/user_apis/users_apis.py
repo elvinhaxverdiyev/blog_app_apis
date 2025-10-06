@@ -7,6 +7,10 @@ from users.models.user_models import CustomUser
 from users.serializers.user_serializers import CustomUserSerializer
 
 
+__all__ = [
+    'UserListAPIView'
+]
+
 class UserListAPIView(APIView):
     def get(self):
         user = CustomUser.objects.all()
