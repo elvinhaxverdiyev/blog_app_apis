@@ -12,7 +12,10 @@ __all__ = [
 ]
 
 class UserListAPIView(APIView):
+    http_method_names = ["get"]
+    
     def get(self):
         user = CustomUser.objects.all()
         serializer = CustomUserSerializer(user, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+    
