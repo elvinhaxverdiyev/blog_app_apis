@@ -6,6 +6,11 @@ from users.serializers.authentications_serializers import RegisterSerializer
 
 
 class RegisterAPIView(APIView):
+    """
+    API View for registering a new user.
+    Accepts POST requests with user data and returns a success message
+    if the registration is successful, otherwise returns serializer errors.
+    """
     def post(self, request):
         serializer = RegisterSerializer(data=request.data)
         if serializer.is_valid():
