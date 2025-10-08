@@ -46,6 +46,12 @@ class UserListAPIView(APIView):
     http_method_names = ["get"]
     
     def get(self, request):
+        """
+        GET method:
+        - Retrieves all CustomUser objects
+        - Serializes them into JSON
+        - Returns the data with HTTP 200 OK status
+        """
         user = CustomUser.objects.all()
         serializer = CustomUserSerializer(user, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
