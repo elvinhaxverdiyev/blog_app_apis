@@ -5,9 +5,11 @@ from rest_framework.permissions import AllowAny
 
 
 from users.serializers.authentications_serializers import RegisterSerializer
+from users.serializers.authentications_serializers import LoginSerializer
 
 __all__ = [
-    'RegisterAPIView'
+    'RegisterAPIView',
+    'LoginAPIView'
 ]
 
 class RegisterAPIView(APIView):
@@ -23,4 +25,15 @@ class RegisterAPIView(APIView):
         if serializer.is_valid():
             user = serializer.save()
             return Response({"message": "User successfully registered"}, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    
+
+class LoginAPIView(APIView):
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+        serializer = LoginSerializer(data=request.data)
+        if serializer.is_valid():
+            return Response(serializer.validated_data, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
