@@ -60,12 +60,9 @@ class LoginSerializer(serializers.Serializer):
         user = authenticate(email=email, password=password)
         if not user:
             raise serializers.ValidationError("Email və ya parol yanlışdır")
-
-        # Token yaradılır
         refresh = RefreshToken.for_user(user)
         access = refresh.access_token
 
-        # JSON serializable dict qaytarılır
         return {
             "refresh": str(refresh),
             "access": str(access),
