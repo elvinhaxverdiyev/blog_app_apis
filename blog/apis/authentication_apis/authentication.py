@@ -4,6 +4,9 @@ from rest_framework import status
 
 from users.serializers.authentications_serializers import RegisterSerializer
 
+__all__ = [
+    'RegisterAPIView'
+]
 
 class RegisterAPIView(APIView):
     """
