@@ -9,18 +9,24 @@ class RegisterSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CustomUser
-        fields = ["email", "password", "name", "bio", "image"]
+        fields = ["email", "password", "username", "name", "bio", "image"]
 
     def create(self, validated_data):
         image = validated_data.pop("image", None)
         password = validated_data.pop("password")
+        email = validated_data.pop("email")  
 
-        user = CustomUser.objects.create_user(password=password, **validated_data)
+        user = CustomUser.objects.create_user(
+            email=email,
+            password=password,
+            **validated_data  
+        )
 
         if image:
             UsersImageModel.objects.create(user=user, image=image)
 
         return user
+
 
 
 class LoginSerializer(serializers.Serializer):

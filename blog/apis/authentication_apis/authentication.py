@@ -1,6 +1,8 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.permissions import AllowAny
+
 
 from users.serializers.authentications_serializers import RegisterSerializer
 
@@ -14,6 +16,8 @@ class RegisterAPIView(APIView):
     Accepts POST requests with user data and returns a success message
     if the registration is successful, otherwise returns serializer errors.
     """
+    permission_classes = [AllowAny]
+    
     def post(self, request):
         serializer = RegisterSerializer(data=request.data)
         if serializer.is_valid():
