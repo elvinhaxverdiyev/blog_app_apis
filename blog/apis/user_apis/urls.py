@@ -1,13 +1,13 @@
 from django.urls import path
 
-from apis.user_apis import *
+from .users_apis import *
 
+app_name = 'user_apis'
 
 urlpatterns = [
     path(
-        "users/",
+        'users/',
         UserListAPIView.as_view(),
-        name="user-list"
+        name='user-list'
     ),
 ]
-

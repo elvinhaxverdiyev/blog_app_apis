@@ -1,2 +1,0 @@
-from user_image_serializers import UserImageSerializer
-from user_serializers import UserProfileSerializer
