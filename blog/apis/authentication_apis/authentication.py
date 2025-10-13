@@ -30,6 +30,11 @@ class RegisterAPIView(APIView):
     
 
 class LoginAPIView(APIView):
+    """
+    Handles user login requests.
+
+    Accepts POST with credentials and returns JWT tokens on success.
+    """
     permission_classes = [AllowAny]
 
     def post(self, request):
