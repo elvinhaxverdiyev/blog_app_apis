@@ -38,6 +38,7 @@ class LoginAPIView(APIView):
     permission_classes = [AllowAny]
 
     def post(self, request):
+        """Validate user credentials and return tokens if valid."""
         serializer = LoginSerializer(data=request.data)
         if serializer.is_valid():
             return Response(serializer.validated_data, status=status.HTTP_200_OK)
