@@ -3,7 +3,8 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from .authentication import (
     RegisterAPIView,
-    LoginAPIView
+    LoginAPIView,
+    LogOutAPIView
 )
 
 app_name = 'authentications_apis'
@@ -19,8 +20,13 @@ urlpatterns = [
         LoginAPIView.as_view(),
         name='login'
     ),
+    path(
+        'logout/',
+        LogOutAPIView.as_view(),
+        name='logout'
+    ),
 
-    # JWT endpoints
+    # # JWT endpoints
     path(
         'api/token/',
         TokenObtainPairView.as_view(),

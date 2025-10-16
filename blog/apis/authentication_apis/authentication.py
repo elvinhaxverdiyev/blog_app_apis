@@ -10,7 +10,8 @@ from users.serializers.authentications_serializers import LoginSerializer
 
 __all__ = [
     'RegisterAPIView',
-    'LoginAPIView'
+    'LoginAPIView',
+    'LogOutAPIView'
 ]
 
 class RegisterAPIView(APIView):
