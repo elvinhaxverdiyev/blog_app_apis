@@ -21,6 +21,7 @@ class RegisterAPIView(APIView):
     if the registration is successful, otherwise returns serializer errors.
     """
     permission_classes = [AllowAny]
+    http_method_names = ["post"]
     
     def post(self, request):
         serializer = RegisterSerializer(data=request.data)
@@ -38,6 +39,7 @@ class LoginAPIView(APIView):
     Accepts POST with credentials and returns JWT tokens on success.
     """
     permission_classes = [AllowAny]
+    http_method_names = ["post"]
 
     def post(self, request):
         """Validate user credentials and return tokens if valid."""
@@ -55,7 +57,7 @@ class LogOutAPIView(APIView):
     Returns 205 on success, 400 if token is invalid, or error if missing.
     """
     permission_classes = [IsAuthenticated]
-    
+    http_method_names = ["post"]
     def post(self, request):
         refresh_token = request.data.get('refresh')
         
