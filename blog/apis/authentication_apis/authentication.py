@@ -48,6 +48,12 @@ class LoginAPIView(APIView):
     
 
 class LogOutAPIView(APIView):
+    """
+    Logs out an authenticated user by blacklisting their refresh token.
+
+    POST request expects a 'refresh' token in the request data.
+    Returns 205 on success, 400 if token is invalid, or error if missing.
+    """
     permission_classes = [IsAuthenticated]
     
     def post(self, request):
