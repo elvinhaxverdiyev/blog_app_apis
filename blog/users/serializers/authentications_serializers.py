@@ -4,7 +4,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 
 from users.models.user_models import CustomUser
 from users.models.user_image_model import UsersImageModel
-from blog.utils.validations import check_password_length
+from utils.validations import check_password_length
 
 
 class RegisterSerializer(serializers.ModelSerializer):

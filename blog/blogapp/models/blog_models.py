@@ -4,7 +4,6 @@ from django.db import models
 class Blog(models.Model):
     title = models.CharField(max_length=255, verbose_name="Bashliq")
     text = models.TextField(max_length=10000, verbose_name="Metn")
-    image = models.ImageField(verbose_name="Shekil")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Yaradilma Tarixi")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Yenileme Tarixi")
     
