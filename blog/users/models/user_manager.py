@@ -1,6 +1,9 @@
 from django.contrib.auth.models import BaseUserManager
 
 class CustomUserManager(BaseUserManager):
+    """
+    Custom manager for CustomUser model with email as the unique identifier.
+    """
     def create_user(self, email, password=None, **extra_fields):
         if not email:
             raise ValueError("Email must be provided")
