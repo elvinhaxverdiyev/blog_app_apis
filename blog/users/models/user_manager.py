@@ -5,6 +5,9 @@ class CustomUserManager(BaseUserManager):
     Custom manager for CustomUser model with email as the unique identifier.
     """
     def create_user(self, email, password=None, **extra_fields):
+        """
+        Create and return a regular user with the given email and password.
+        """
         if not email:
             raise ValueError("Email must be provided")
         email = self.normalize_email(email)
