@@ -61,8 +61,8 @@ class LoginSerializer(serializers.Serializer):
         }
 
     def validate(self, attrs):
-        email = attrs.get("email")
-        password = attrs.get("password")
+        email = attrs.get("email").strip()
+        password = attrs.get("password").strip()
 
         if not email or not password:
             raise serializers.ValidationError("Email və parol daxil edilməlidir")

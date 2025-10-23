@@ -6,7 +6,7 @@ from rest_framework.pagination import PageNumberPagination
 
 from users.models.user_models import CustomUser
 from users.serializers.user_serializers import CustomUserSerializer
-from blog.utils.paginations import Pagination
+from utils.paginations import Pagination
 
 
 __all__ = [
@@ -30,7 +30,7 @@ class UserListAPIView(APIView):
         - Serializes them into JSON
         - Returns the data with HTTP 200 OK status
         """
-        user = CustomUser.objects.all()
+        user = CustomUser.objects.all().order_by("-id")
         paginator = self.pagination_class()
         paginated_users = paginator.paginate_queryset(user, request, view=self)
         
