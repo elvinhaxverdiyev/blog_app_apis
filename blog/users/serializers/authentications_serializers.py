@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth import authenticate
 from rest_framework_simplejwt.tokens import RefreshToken
+from django.contrib.auth.password_validation import validate_password
 
 from users.models.user_models import CustomUser
 from users.models.user_image_model import UsersImageModel
@@ -16,6 +17,9 @@ class RegisterSerializer(serializers.ModelSerializer):
         fields = ["email", "password", "username", "name", "bio", "image"]
         
     def validate_password(self, value):
+        
+        validate_password(value)
+        
         if not check_password_length(value):
             raise serializers.ValidationError("Password must be between 4 and 10 characters.")
         return value
