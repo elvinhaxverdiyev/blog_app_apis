@@ -9,6 +9,10 @@ from blogapp.serializers.blog_serializers import BlogSerializer
 from utils.paginations import Pagination
 
 
+__all__ = [
+    "BlogAPIViews"
+]
+
 class BlogAPIViews(APIView):
     
     def get(self, request):
