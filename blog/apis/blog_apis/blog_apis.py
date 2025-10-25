@@ -14,6 +14,8 @@ __all__ = [
 ]
 
 class BlogAPIViews(APIView):
+    permission_classes = [AllowAny]
+    http_method_names = ["get"]
     
     def get(self, request):
         blog = Blog.objects.all().order_by("-id")
