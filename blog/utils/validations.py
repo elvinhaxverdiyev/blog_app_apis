@@ -4,3 +4,5 @@ def check_password_length(password: str)-> bool:
     Returns True if valid, False otherwise.
     """
     return 4 <= len(password) <= 10
+
+

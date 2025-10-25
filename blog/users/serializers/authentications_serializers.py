@@ -9,7 +9,7 @@ from utils.validations import check_password_length
 
 
 class RegisterSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(write_only=True, min_length=6)
+    password = serializers.CharField(required=True, write_only=True, min_length=6)
     image = serializers.ImageField(required=False, allow_null=True)
 
     class Meta:
@@ -44,7 +44,7 @@ class RegisterSerializer(serializers.ModelSerializer):
 
 class LoginSerializer(serializers.Serializer):
     email = serializers.EmailField()
-    password = serializers.CharField(write_only=True)
+    password = serializers.CharField(required=True, write_only=True)
     access = serializers.CharField(read_only=True)
     refresh = serializers.CharField(read_only=True)
     user = serializers.SerializerMethodField(read_only=True)
