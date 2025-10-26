@@ -29,6 +29,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         return value
 
     def create(self, validated_data):
+        """Create a new user and save profile image if provided."""
         image = validated_data.pop("image", None)
         password = validated_data.pop("password")
         email = validated_data.pop("email")  
