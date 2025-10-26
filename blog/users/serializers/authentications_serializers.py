@@ -9,6 +9,11 @@ from utils.validations import check_password_length
 
 
 class RegisterSerializer(serializers.ModelSerializer):
+    """
+    Serializer for user registration.
+    Handles password validation, optional profile image upload, 
+    and user creation with related image model.
+    """
     password = serializers.CharField(required=True, write_only=True, min_length=6)
     image = serializers.ImageField(required=False, allow_null=True)
 
