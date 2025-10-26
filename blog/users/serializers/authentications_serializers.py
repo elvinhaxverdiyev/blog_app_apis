@@ -59,6 +59,7 @@ class LoginSerializer(serializers.Serializer):
     user = serializers.SerializerMethodField(read_only=True)
 
     def get_user(self, obj):
+        """Return serialized user data."""
         user = obj.get('user')
         if not user:
             return None
