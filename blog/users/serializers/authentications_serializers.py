@@ -71,6 +71,7 @@ class LoginSerializer(serializers.Serializer):
         }
 
     def validate(self, attrs):
+        """Authenticate user and generate JWT tokens."""
         email = attrs.get("email").strip()
         password = attrs.get("password").strip()
 
