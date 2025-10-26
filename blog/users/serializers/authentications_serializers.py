@@ -48,6 +48,10 @@ class RegisterSerializer(serializers.ModelSerializer):
 
 
 class LoginSerializer(serializers.Serializer):
+    """
+    Serializer for user login.
+    Authenticates user and returns JWT tokens with basic user info.
+    """
     email = serializers.EmailField()
     password = serializers.CharField(required=True, write_only=True)
     access = serializers.CharField(read_only=True)
