@@ -22,9 +22,8 @@ class RegisterSerializer(serializers.ModelSerializer):
         fields = ["email", "password", "username", "name", "bio", "image"]
         
     def validate_password(self, value):
-        
+        """Validate password using Django validators and custom length check."""
         validate_password(value)
-        
         if not check_password_length(value):
             raise serializers.ValidationError("Password must be between 4 and 10 characters.")
         return value
