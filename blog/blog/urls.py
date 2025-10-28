@@ -18,6 +18,10 @@ urlpatterns = [
         'api/v1/',
         include('apis.user_apis.urls')
     ),
+    path(
+        'api/v1/',
+        include('apis.blog_apis.urls')
+    ),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
