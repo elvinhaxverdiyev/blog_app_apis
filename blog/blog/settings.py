@@ -180,7 +180,7 @@ EMAIL_HOST_USER = config("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL", default=EMAIL_HOST_USER)
 
-
+#celery settings
 CELERY_BROKER_URL = config("CELERY_BROKER_URL", default="redis://localhost:6379/0")
 CELERY_RESULT_BACKEND = config("CELERY_RESULT_BACKEND", default="redis://localhost:6379/0")
 CELERY_TIMEZONE = config("CELERY_TIMEZONE", default="Asia/Baku")
@@ -191,7 +191,7 @@ CELERY_RESULT_SERIALIZER = "json"
 CELERY_TASK_TRACK_STARTED = True
 CELERY_TASK_TIME_LIMIT = 30 * 60
 
-# (optional) Periodic tasks üçün
+#for periodic task
 CELERY_BEAT_SCHEDULE = {
     "delete-expired-products-every-day": {
         "task": "products.tasks.remove_expired_products",
