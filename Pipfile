@@ -8,6 +8,8 @@ djangorestframework = "*"
 pillow = "*"
 djangorestframework-simplejwt = "*"
 django = "*"
+python-decouple = "*"
+celery = "*"
 
 [dev-packages]
 
