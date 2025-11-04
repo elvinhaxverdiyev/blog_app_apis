@@ -1,4 +1,7 @@
 from django.contrib import admin
+
+from django.contrib.auth.admin import UserAdmin
+from .models.user_models import CustomUser
 from .models.user_image_model import UsersImageModel
 
 
@@ -8,11 +11,6 @@ class UsersImageAdmin(admin.ModelAdmin):
     list_filter = ("created_at",)
     search_fields = ("user__username", "user__name")
     ordering = ("-created_at",)
-
-
-from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
-from .models.user_models import CustomUser
 
 
 @admin.register(CustomUser)
