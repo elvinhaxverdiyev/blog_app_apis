@@ -10,15 +10,17 @@ urlpatterns = [
         'admin/',
         admin.site.urls
     ),
-
+    #auths apis urls
     path(
         'api/v1/',
         include('apis.authentication_apis.urls')
     ),
+    #user apis urls
     path(
         'api/v1/',
         include('apis.user_apis.urls')
     ),
+    #blog apis urls
     path(
         'api/v1/',
         include('apis.blog_apis.urls')
