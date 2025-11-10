@@ -30,10 +30,10 @@ class UserListAPIView(APIView):
         - Serializes them into JSON
         - Returns the data with HTTP 200 OK status
         """
-        user = CustomUser.objects.all().order_by("-id") #get all user and orderinf by id
-        paginator = self.pagination_class()  #call paginator class fir paginated users 
+        user = CustomUser.objects.all().order_by("-id") 
+        paginator = self.pagination_class()  
         paginated_users = paginator.paginate_queryset(user, request, view=self)
         
         serializer = CustomUserSerializer(paginated_users, many=True)
-        return paginator.get_paginated_response(serializer.data) #return paginated user
+        return paginator.get_paginated_response(serializer.data) 
     
