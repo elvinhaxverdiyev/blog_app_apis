@@ -14,6 +14,12 @@ __all__ = [
 ]
 
 class BlogAPIViews(APIView):
+    """
+    API view to retrieve all blog posts.
+
+    This endpoint allows anyone (no authentication required) to fetch
+    the list of blog posts ordered by newest first.
+    """
     permission_classes = [AllowAny]
     http_method_names = ["get"]
     
