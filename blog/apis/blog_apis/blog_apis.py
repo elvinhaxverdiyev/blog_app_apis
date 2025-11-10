@@ -24,6 +24,15 @@ class BlogAPIViews(APIView):
     http_method_names = ["get"]
     
     def get(self, request):
+        """
+        Retrieve all blog posts.
+
+        Returns a list of all blog entries in JSON format, ordered by descending ID
+        (newest first). Uses the BlogSerializer to serialize each blog object.
+
+        Returns:
+            Response: JSON response containing serialized blog data with HTTP 200 OK.
+        """
         blog = Blog.objects.all().order_by("-id")
         serializer = BlogSerializer(blog, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
