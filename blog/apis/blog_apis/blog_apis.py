@@ -33,7 +33,7 @@ class BlogAPIViews(APIView):
         Returns:
             Response: JSON response containing serialized blog data with HTTP 200 OK.
         """
-        blog = Blog.objects.all().order_by("-id")
+        blog = Blog.objects.all().order_by("-id") # get all blogs by id
         serializer = BlogSerializer(blog, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
         
